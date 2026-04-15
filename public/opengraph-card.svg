@@ -1,0 +1,53 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Canada Business Solutions Open Graph Card</title>
+  <desc id="desc">Branded preview card for Canada Business Solutions.</desc>
+  <defs>
+    <linearGradient id="bg" x1="130" y1="72" x2="1098" y2="594" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#001F3D" />
+      <stop offset="0.58" stop-color="#002D57" />
+      <stop offset="1" stop-color="#0D3F88" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(920 84) rotate(135) scale(298 220)">
+      <stop stop-color="#5695FF" stop-opacity="0.32" />
+      <stop offset="1" stop-color="#5695FF" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" stroke="white" stroke-opacity="0.12"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" rx="36" fill="url(#bg)" />
+  <rect width="1200" height="630" rx="36" fill="url(#glow)" />
+  <rect width="1200" height="630" rx="36" fill="url(#grid)" />
+
+  <rect x="54" y="54" width="1092" height="522" rx="36" fill="white" fill-opacity="0.05" stroke="white" stroke-opacity="0.14" />
+
+  <text x="96" y="118" fill="#BDD4FF" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="6.2">
+    CANADA BUSINESS SOLUTIONS
+  </text>
+
+  <text x="96" y="234" fill="white" font-family="Georgia, 'Times New Roman', serif" font-size="84" font-weight="700" letter-spacing="-4.2">
+    <tspan x="96" dy="0">Start strong.</tspan>
+    <tspan x="96" dy="88">Scale smart.</tspan>
+  </text>
+
+  <text x="96" y="410" fill="white" fill-opacity="0.84" font-family="Arial, sans-serif" font-size="29" font-weight="400">
+    <tspan x="96" dy="0">Business consulting for entrepreneurs and</tspan>
+    <tspan x="96" dy="42">newcomers building in Canada.</tspan>
+  </text>
+
+  <g>
+    <rect x="830" y="479" width="275" height="56" rx="28" fill="white" fill-opacity="0.07" stroke="white" stroke-opacity="0.16" />
+    <text x="968" y="513" text-anchor="middle" fill="#BDD4FF" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="3.1">
+      CONSULTATION-FIRST
+    </text>
+  </g>
+
+  <text x="96" y="515" fill="white" fill-opacity="0.76" font-family="Arial, sans-serif" font-size="22" font-weight="500">
+    +1 (647) 693-6982
+  </text>
+  <circle cx="290" cy="507" r="3" fill="white" fill-opacity="0.5" />
+  <text x="312" y="515" fill="white" fill-opacity="0.76" font-family="Arial, sans-serif" font-size="22" font-weight="500">
+    info@canadabusinesssolutions.ca
+  </text>
+</svg>

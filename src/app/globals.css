@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Client brand palette */
+  --color-primary: 24 0 172;      /* #1800ac Electric Blue — CTA / primary accent */
+  --color-navy: 0 45 87;          /* #002d57 Deep Navy — hero / dark sections */
+  --color-royal: 3 59 155;        /* #033b9b Royal Blue — secondary / hover */
+  --color-accent: 86 149 255;     /* #5695ff Sky Blue — highlight / link */
+  --color-mist: 189 212 255;      /* tint for subtitle on navy */
+  --color-ink: 11 18 32;          /* near-black body text */
+  --color-white: 255 255 255;
+  --color-off-white: 241 241 240; /* #f1f1f0 alternating sections */
+
+  /* Semantic aliases preserved so existing components compile unchanged */
+  --color-bone: var(--color-off-white);
+  --color-paper: 234 237 244;     /* slightly cooler paper variant */
+  --color-cream: var(--color-white);
+  --color-ember: var(--color-primary);
+  --color-rust: var(--color-royal);
+  --color-fog: var(--color-mist);
+  --color-charcoal: 7 14 26;
+
+  /* DM Sans leads; Fraunces kept only for optional quote pull-outs */
+  --font-display: "DM Sans", ui-sans-serif, sans-serif;
+  --font-body: "DM Sans", ui-sans-serif, sans-serif;
+  --font-mono: "DM Sans", ui-sans-serif, sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+
+  --radius-card: 0.25rem;
+  --radius-shell: 0.5rem;
+
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  * {
+    border-color: rgb(var(--color-navy) / 0.1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: rgb(var(--color-white));
+  }
+
+  body {
+    @apply min-h-screen font-sans text-ink antialiased;
+    background-color: rgb(var(--color-white));
+    color: rgb(var(--color-ink));
+  }
+
+  ::selection {
+    background: rgb(var(--color-primary));
+    color: rgb(var(--color-white));
+  }
+
+  a {
+    transition: color 200ms var(--ease-editorial);
+  }
+
+  :where(a[href], button, input, textarea, select):focus-visible {
+    outline: 2px solid rgb(var(--color-primary) / 0.9);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  /* Kill the editorial italic-emphasis pattern site-wide: no italic words for flair */
+  h1 em, h2 em, h3 em, h4 em, h5 em {
+    font-style: normal;
+    font-family: inherit;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto flex min-h-screen w-full max-w-[1720px] flex-col;
+  }
+
+  .eyebrow {
+    @apply font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-primary;
+  }
+
+  /* Display type scale — size + weight carry hierarchy (Maverin-style) */
+  .h-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-size: clamp(2.75rem, 5.5vw, 4.5rem);
+  }
+  .h-section {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+  }
+  .h-card {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    font-size: 1.5rem;
+  }
+  .body-lg {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  .body-base {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 border border-navy/15 bg-white px-3 py-1.5 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-navy;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  /* Subtle diagonal geometric line pattern (per brand brief hero spec) */
+  .pattern-diagonal {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgb(var(--color-accent) / 0.08) 0px,
+      rgb(var(--color-accent) / 0.08) 1px,
+      transparent 1px,
+      transparent 14px
+    );
+  }
+  .pattern-diagonal-light {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgb(var(--color-navy) / 0.045) 0px,
+      rgb(var(--color-navy) / 0.045) 1px,
+      transparent 1px,
+      transparent 14px
+    );
+  }
+
+  /* Low-opacity maple-leaf tile (per brand brief hero spec) */
+  .pattern-maple {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'><g fill='none' stroke='%235695ff' stroke-opacity='0.14' stroke-width='1.2'><path d='M90 30 L96 52 L120 44 L106 64 L128 76 L104 82 L112 108 L90 94 L68 108 L76 82 L52 76 L74 64 L60 44 L84 52 Z'/></g></svg>");
+    background-size: 180px 180px;
+    background-repeat: repeat;
+  }
+  .pattern-maple-dark {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'><g fill='none' stroke='%23002d57' stroke-opacity='0.08' stroke-width='1.2'><path d='M90 30 L96 52 L120 44 L106 64 L128 76 L104 82 L112 108 L90 94 L68 108 L76 82 L52 76 L74 64 L60 44 L84 52 Z'/></g></svg>");
+    background-size: 180px 180px;
+    background-repeat: repeat;
+  }
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
