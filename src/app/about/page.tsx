@@ -53,12 +53,34 @@ const differentiators = [
   },
 ];
 
-const team = [
+type TeamMember = {
+  name: string;
+  role: string;
+  focus: string;
+  photo?: string;
+};
+
+const team: TeamMember[] = [
   {
     name: "Dayal Tony",
     role: "Founder and lead advisor",
     focus:
       "Initial strategy sessions, business setup guidance, and client roadmap planning.",
+    photo: "/team/dayal-tony.jpg",
+  },
+  {
+    name: "Cindy Torrejon Castro",
+    role: "Digital marketing and content strategy",
+    focus:
+      "Over four years of experience across paid and organic channels — Google Ads, social media, and content marketing — using data-driven insights to design campaigns that connect brands with their audiences and strengthen digital presence.",
+    photo: "/team/cindy.jpg",
+  },
+  {
+    name: "Sangeetha Shingam, CPA",
+    role: "Senior accountant · Tax and financial consultant",
+    focus:
+      "7+ years in tax, bookkeeping, and financial analysis — helping individuals and businesses stay compliant, manage cash flow, and make informed financial decisions.",
+    photo: "/team/sangeetha-shingam.jpg",
   },
   {
     name: "Sonal Varghese",
@@ -384,13 +406,25 @@ export default function AboutPage() {
             {team.map((person, index) => (
               <Card key={person.name} className="border-brand-navy/8 bg-white/92">
                 <div className="flex items-start justify-between gap-4">
-                  <span className="inline-flex h-14 w-14 items-center justify-center rounded-[1.1rem] bg-brand-paper font-display text-2xl tracking-[-0.04em] text-brand-primary">
-                    {person.name
-                      .split(" ")
-                      .map((part) => part[0])
-                      .join("")
-                      .slice(0, 2)}
-                  </span>
+                  {person.photo ? (
+                    <span className="relative inline-flex h-14 w-14 overflow-hidden rounded-full ring-2 ring-brand-paper">
+                      <Image
+                        src={person.photo}
+                        alt={person.name}
+                        fill
+                        sizes="56px"
+                        className="object-cover object-[center_20%]"
+                      />
+                    </span>
+                  ) : (
+                    <span className="inline-flex h-14 w-14 items-center justify-center rounded-[1.1rem] bg-brand-paper font-display text-2xl tracking-[-0.04em] text-brand-primary">
+                      {person.name
+                        .split(" ")
+                        .map((part) => part[0])
+                        .join("")
+                        .slice(0, 2)}
+                    </span>
+                  )}
                   <span className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-navy/66">
                     0{index + 1}
                   </span>
