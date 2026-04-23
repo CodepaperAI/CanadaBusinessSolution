@@ -10,6 +10,7 @@ import {
   BriefcaseBusiness,
   Building2,
   ClipboardCheck,
+  FileSignature,
   FileStack,
   Landmark,
   MessagesSquare,
@@ -27,7 +28,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = buildMetadata({
   title: "Services",
   description:
-    "Explore business incorporation, licensing and permits, grants and funding, and procurement support from Canada Business Solutions.",
+    "Explore business incorporation, licensing and permits, grants and funding, procurement support, and contract bidding from Canada Business Solutions.",
   path: "/services",
 });
 
@@ -91,6 +92,19 @@ const services: Service[] = [
       "Operational credibility guidance",
     ],
     span: "lg:col-span-6",
+  },
+  {
+    title: "Contract bidding & proposal support",
+    description:
+      "Identify opportunities, prepare proposals, and submit winning bids for long-term contracts.",
+    icon: FileSignature,
+    items: [
+      "MERX and CanadaBuys registration",
+      "Capability statement preparation",
+      "Bid submission and review",
+      "Proposal positioning and follow-through",
+    ],
+    span: "lg:col-span-12",
   },
 ];
 
@@ -213,7 +227,7 @@ export default function ServicesPage() {
           <div className="grid gap-4 lg:pb-3">
             <div className="rounded-[2rem] border border-white/10 bg-white/[0.08] p-6 backdrop-blur-md">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-mist">
-                Four core advisory lanes
+                Five core advisory lanes
               </p>
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {services.map((service) => {
@@ -269,7 +283,7 @@ export default function ServicesPage() {
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
           <SectionHeading
             eyebrow="Service detail"
-            title="Four services, structured around what early-stage businesses need."
+            title="Five services, structured around what early-stage businesses need."
             description="Each card shows exactly what CBS handles in that lane — so you can see the work, not just a headline."
           />
 

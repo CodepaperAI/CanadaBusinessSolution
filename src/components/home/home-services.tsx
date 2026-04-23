@@ -8,6 +8,7 @@ import {
   ArrowUpRight,
   BriefcaseBusiness,
   Building2,
+  FileSignature,
   Landmark,
   ScrollText,
 } from "lucide-react";
@@ -50,6 +51,14 @@ const services: ServiceItem[] = [
     icon: BriefcaseBusiness,
     photo:
       "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Contract Bidding & Proposal Support",
+    description:
+      "MERX and CanadaBuys registration, capability statements, and bid submission.",
+    icon: FileSignature,
+    photo:
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80",
   },
 ];
 
@@ -100,7 +109,7 @@ export function HomeServices() {
           <div>
             <Eyebrow>What we do</Eyebrow>
             <h2 className="h-section mt-3 max-w-2xl text-navy">
-              Four practice areas, one operating partner.
+              Five practice areas, one operating partner.
             </h2>
           </div>
           <Link
@@ -112,7 +121,7 @@ export function HomeServices() {
           </Link>
         </motion.div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {services.map((service) => {
             const Icon = service.icon;
             return (

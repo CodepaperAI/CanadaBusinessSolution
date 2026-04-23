@@ -48,14 +48,14 @@ const differentiators = [
   {
     title: "Grounded in Toronto, useful beyond one city",
     description:
-      "CBS works from a strong local base while helping business owners think through requirements that extend across multiple provinces.",
+      "CBS works from a strong local base while helping business owners think through requirements that extend across Canada.",
     icon: MapPinned,
   },
 ];
 
 const team = [
   {
-    name: "Dail Tony Chirakadavil",
+    name: "Dayal Tony",
     role: "Founder and lead advisor",
     focus:
       "Initial strategy sessions, business setup guidance, and client roadmap planning.",
@@ -277,6 +277,93 @@ export default function AboutPage() {
                 </article>
               );
             })}
+          </div>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="relative overflow-hidden rounded-shell bg-brand-navy text-white">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(86,149,255,0.25),transparent_40%),linear-gradient(135deg,rgba(255,255,255,0.05),transparent_45%)]"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:48px_48px]"
+          />
+
+          <div className="relative grid gap-12 px-6 py-14 sm:px-10 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16 lg:px-14 lg:py-20">
+            <div className="relative mx-auto w-full max-w-[340px] lg:max-w-[420px]">
+              <div
+                aria-hidden="true"
+                className="absolute -inset-6 rounded-full bg-[radial-gradient(circle_at_30%_20%,rgba(86,149,255,0.55),transparent_65%)] blur-3xl"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute -inset-1 rounded-full border border-white/20"
+              />
+              <div className="relative aspect-square overflow-hidden rounded-full ring-1 ring-inset ring-white/15 shadow-[0_30px_80px_-25px_rgba(0,0,0,0.7)]">
+                <Image
+                  src="/team/dayal-tony.jpg"
+                  alt="Dayal Tony, founder of Canada Business Solutions"
+                  fill
+                  sizes="(min-width: 1024px) 26vw, 70vw"
+                  className="translate-x-[10%] scale-[1.25] object-cover object-[50%_26%]"
+                  priority={false}
+                />
+              </div>
+              <p className="relative mt-6 text-center text-xs font-semibold uppercase tracking-[0.24em] text-brand-mist">
+                Dayal Tony · Founder
+              </p>
+            </div>
+
+            <div>
+              <p className="inline-flex items-center rounded-full border border-white/14 bg-white/8 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-brand-mist">
+                Meet the founder
+              </p>
+              <h2 className="mt-6 font-display text-[clamp(2.5rem,4.2vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em]">
+                Dayal Tony
+              </h2>
+              <p className="mt-3 text-sm font-semibold uppercase tracking-[0.2em] text-brand-mist">
+                Founder · Business &amp; Management Consultant
+              </p>
+
+              <p className="mt-8 max-w-[42ch] font-display text-2xl leading-[1.25] text-white sm:text-[1.75rem]">
+                &ldquo;Empower your business growth — expert guidance for entrepreneurs across Canada.&rdquo;
+              </p>
+
+              <p className="mt-8 max-w-[48ch] text-lg leading-[1.7] text-white/82">
+                Business and management consultant focused on funding strategy,
+                regulatory guidance, and strategic project planning. Dayal supports
+                startups, nonprofits, and global firms navigating the Canadian
+                business landscape — turning complex setup, compliance, and
+                procurement paths into clear next steps.
+              </p>
+
+              <p className="mt-4 max-w-[48ch] text-base leading-[1.7] text-white/70">
+                Based in Scarborough, Ontario, with academic training from
+                International Business University, he leads every engagement at
+                Canada Business Solutions from the first conversation through
+                launch follow-through.
+              </p>
+
+              <ul className="mt-8 flex flex-wrap gap-2">
+                {[
+                  "Funding strategy",
+                  "Regulatory guidance",
+                  "Strategic planning",
+                  "Startups & nonprofits",
+                  "Global firms",
+                ].map((tag) => (
+                  <li
+                    key={tag}
+                    className="rounded-full border border-white/14 bg-white/8 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-mist"
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </Section>

@@ -21,7 +21,7 @@ const socialIcons = {
 } as const;
 
 const trustMarkers = [
-  { icon: Globe2, label: "5 provinces served" },
+  { icon: Globe2, label: "Canada-wide service" },
   { icon: ShieldCheck, label: "Compliance-first" },
   { icon: Clock3, label: "24-hour response" },
 ];
@@ -214,7 +214,7 @@ export function Footer() {
             © {year} {siteConfig.name}
           </p>
           <p className="hidden text-mist/45 md:block">
-            Incorporation · Licensing · Funding · Procurement
+            Incorporation · Licensing · Funding · Procurement · Contract bidding
           </p>
           <ul className="flex items-center gap-5">
             {secondaryLinks.map((link) => (

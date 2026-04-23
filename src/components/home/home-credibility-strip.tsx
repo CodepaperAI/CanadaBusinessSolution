@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 const markers = [
-  { icon: Globe2, label: "5 provinces served" },
+  { icon: Globe2, label: "Canada-wide service" },
   { icon: BadgeCheck, label: "10+ years in practice" },
   { icon: Users, label: "500+ businesses launched" },
   { icon: ShieldCheck, label: "Compliance-first approach" },

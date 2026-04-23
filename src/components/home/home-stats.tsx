@@ -6,10 +6,16 @@ import { StatCounter } from "@/components/home/stat-counter";
 import { gsap } from "@/lib/gsap";
 import { Eyebrow } from "@/components/motion/eyebrow";
 
-const stats = [
+type Stat = {
+  value: number | string;
+  suffix?: string;
+  label: string;
+};
+
+const stats: Stat[] = [
   { value: 500, suffix: "+", label: "Businesses launched" },
   { value: 10, suffix: "+", label: "Years in practice" },
-  { value: 5, label: "Provinces served" },
+  { value: "Canada-wide", label: "Service coverage" },
   { value: 98, suffix: "%", label: "Client satisfaction" },
 ];
 
@@ -68,11 +74,17 @@ export function HomeStats() {
               data-stat-card
               className="flex flex-col"
             >
-              <StatCounter
-                value={stat.value}
-                suffix={stat.suffix}
-                className="font-display text-[clamp(2.75rem,5vw,4.5rem)] font-semibold leading-none tracking-[-0.03em] text-navy"
-              />
+              {typeof stat.value === "number" ? (
+                <StatCounter
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  className="font-display text-[clamp(2.75rem,5vw,4.5rem)] font-semibold leading-none tracking-[-0.03em] text-navy"
+                />
+              ) : (
+                <span className="font-display text-[clamp(1.75rem,3vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-navy">
+                  {stat.value}
+                </span>
+              )}
               <p className="mt-4 text-sm font-semibold uppercase tracking-[0.14em] text-navy">
                 {stat.label}
               </p>

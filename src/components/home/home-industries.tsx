@@ -21,11 +21,6 @@ const industries = [
       "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=1000&q=80",
   },
   {
-    label: "Logistics",
-    photo:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80",
-  },
-  {
     label: "Professional services",
     photo:
       "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80",
@@ -34,6 +29,26 @@ const industries = [
     label: "Trades",
     photo:
       "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1000&q=80",
+  },
+  {
+    label: "Transportation & logistics",
+    photo:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=80",
+  },
+  {
+    label: "Import & export",
+    photo:
+      "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1000&q=80",
+  },
+  {
+    label: "Technology & IT services",
+    photo:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80",
+  },
+  {
+    label: "Defence & cyber security",
+    photo:
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1000&q=80",
   },
 ];
 
