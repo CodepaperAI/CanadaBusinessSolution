@@ -25,8 +25,20 @@ export const siteConfig = {
     href: "/contact",
   },
   socialLinks: [
-    { label: "LinkedIn", icon: "linkedin" as const, href: "" },
-    { label: "Facebook", icon: "facebook" as const, href: "" },
-    { label: "Instagram", icon: "instagram" as const, href: "" },
+    {
+      label: "LinkedIn",
+      icon: "linkedin" as const,
+      href: "https://www.linkedin.com/company/canada-business-solutions/",
+    },
+    {
+      label: "Facebook",
+      icon: "facebook" as const,
+      href: "https://www.facebook.com/share/18Wev9Qnhj/",
+    },
+    {
+      label: "Instagram",
+      icon: "instagram" as const,
+      href: "https://www.instagram.com/canada_business_solutions_/",
+    },
   ],
 };

@@ -82,24 +82,6 @@ const team: TeamMember[] = [
       "7+ years in tax, bookkeeping, and financial analysis — helping individuals and businesses stay compliant, manage cash flow, and make informed financial decisions.",
     photo: "/team/sangeetha-shingam.jpg",
   },
-  {
-    name: "Sonal Varghese",
-    role: "Incorporation and registration lead",
-    focus:
-      "Business structure decisions, registration workflows, and documentation readiness.",
-  },
-  {
-    name: "Ammar Siddiqui",
-    role: "Licensing and compliance advisor",
-    focus:
-      "Municipal and provincial requirement mapping, application coordination, and compliance checkpoints.",
-  },
-  {
-    name: "Elaine Mensah",
-    role: "Client success and communications",
-    focus:
-      "Scheduling, client follow-up, and keeping every engagement responsive and easy to navigate.",
-  },
 ];
 
 export default function AboutPage() {

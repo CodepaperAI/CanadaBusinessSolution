@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -23,12 +24,18 @@ export function BrandMark({
       <span
         aria-hidden="true"
         className={cn(
-          "relative grid h-10 w-10 place-items-center overflow-hidden transition-transform duration-500 ease-editorial group-hover:rotate-[-6deg]",
-          inverted ? "bg-white text-navy" : "bg-navy text-white",
+          "relative grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-md transition-transform duration-500 ease-editorial group-hover:rotate-[-6deg]",
+          inverted ? "bg-white" : "bg-transparent",
         )}
       >
-        <span className="font-display text-[22px] font-semibold leading-none">C</span>
-        <span className="absolute bottom-1 right-1 h-1.5 w-1.5 bg-primary" />
+        <Image
+          src="/brand/logo.png"
+          alt="Canada Business Solutions logo"
+          width={64}
+          height={64}
+          priority
+          className="h-9 w-9 object-contain"
+        />
       </span>
       {!compact ? (
         <span className="flex flex-col leading-none">
