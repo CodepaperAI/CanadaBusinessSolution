@@ -142,6 +142,87 @@
   .chip {
     @apply inline-flex items-center gap-2 border border-navy/15 bg-white px-3 py-1.5 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-navy;
   }
+
+  /* Typography for blog post HTML rendered from the Uplift API. */
+  .blog-content > * + * {
+    margin-top: 1.25rem;
+  }
+  .blog-content > p:first-of-type {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: rgb(13 27 58 / 0.88);
+  }
+  .blog-content h1,
+  .blog-content h2,
+  .blog-content h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: theme("colors.navy");
+    line-height: 1.15;
+  }
+  .blog-content h2 {
+    margin-top: 2.5rem;
+    font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+  }
+  .blog-content h3 {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+  }
+  .blog-content p {
+    color: rgb(13 27 58 / 0.82);
+  }
+  .blog-content a {
+    color: theme("colors.primary.DEFAULT");
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .blog-content a:hover {
+    color: theme("colors.navy");
+  }
+  .blog-content ul,
+  .blog-content ol {
+    padding-left: 1.5rem;
+  }
+  .blog-content ul {
+    list-style: disc;
+  }
+  .blog-content ol {
+    list-style: decimal;
+  }
+  .blog-content li + li {
+    margin-top: 0.5rem;
+  }
+  .blog-content blockquote {
+    border-left: 3px solid theme("colors.primary.DEFAULT");
+    padding-left: 1.25rem;
+    font-style: italic;
+    color: rgb(13 27 58 / 0.74);
+  }
+  .blog-content img {
+    border-radius: 1rem;
+    width: 100%;
+    height: auto;
+  }
+  .blog-content code {
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.9em;
+    background: theme("colors.paper.DEFAULT");
+    padding: 0.15em 0.4em;
+    border-radius: 0.35rem;
+  }
+  .blog-content pre {
+    background: rgb(13 27 58 / 0.95);
+    color: white;
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    overflow-x: auto;
+  }
+  .blog-content pre code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+  }
 }
 
 @layer utilities {

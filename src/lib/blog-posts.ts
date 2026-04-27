@@ -16,7 +16,7 @@ export const fallbackPosts: BlogPost[] = [
     title: "How to Incorporate a Business in Ontario: Step-by-Step Guide",
     category: "Incorporation",
     readTime: "7 min read",
-    date: "Updated March 2026",
+    date: "Published March 2026",
     summary:
       "A practical breakdown of the decisions, filings, and preparation steps founders should organize before they submit anything.",
     keyPoints: [
@@ -33,7 +33,7 @@ export const fallbackPosts: BlogPost[] = [
     title: "The Complete Guide to Business Licenses and Permits in Canada",
     category: "Licensing",
     readTime: "6 min read",
-    date: "Updated February 2026",
+    date: "Published February 2026",
     summary:
       "A founder-friendly overview of where license and permit requirements usually come from and how to map them before launch.",
     keyPoints: [
@@ -50,7 +50,7 @@ export const fallbackPosts: BlogPost[] = [
     title: "Top Government Grants for Small Businesses in Canada 2024",
     category: "Funding",
     readTime: "5 min read",
-    date: "Updated January 2026",
+    date: "Published January 2026",
     summary:
       "A clearer way to think about grant discovery, eligibility screening, and why better preparation matters before an application is started.",
     keyPoints: [
@@ -67,7 +67,7 @@ export const fallbackPosts: BlogPost[] = [
     title: "5 Common Mistakes When Starting a Business in Canada",
     category: "Planning",
     readTime: "4 min read",
-    date: "Updated April 2026",
+    date: "Published April 2026",
     summary:
       "Five patterns that slow down first-time founders, from sequence mistakes to missing approvals and underprepared filings.",
     keyPoints: [
@@ -84,7 +84,7 @@ export const fallbackPosts: BlogPost[] = [
     title: "Business Registration for Newcomers: What You Need to Know",
     category: "Newcomers",
     readTime: "5 min read",
-    date: "Updated March 2026",
+    date: "Published March 2026",
     summary:
       "A concise orientation for newcomers who want to understand how registration, licensing, and first-step compliance fit together.",
     keyPoints: [
@@ -101,7 +101,7 @@ export const fallbackPosts: BlogPost[] = [
     title: "Sole Proprietorship vs Corporation: Which Is Right for You?",
     category: "Structure",
     readTime: "6 min read",
-    date: "Updated February 2026",
+    date: "Published February 2026",
     summary:
       "A plain-language comparison of two common business structures and the practical tradeoffs founders should think through early.",
     keyPoints: [

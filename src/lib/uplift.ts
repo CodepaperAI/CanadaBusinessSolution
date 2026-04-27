@@ -52,8 +52,38 @@ type UpliftListResponse = {
   error?: string;
 };
 
+type UpliftDetailResponse = {
+  success: boolean;
+  data?: {
+    blog?: UpliftBlog;
+  };
+  error?: string;
+};
+
+export type UpliftBlogDetail = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  category: string;
+  date: string;
+  readTime: string;
+  authorName?: string;
+  authorUrl?: string;
+  coverImage: string;
+  coverAlt: string;
+  seoTitle?: string;
+  seoDescription?: string;
+};
+
 const FALLBACK_COVER =
   "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80";
+
+function nonEmpty(value: string | undefined | null): string | undefined {
+  if (typeof value !== "string") return undefined;
+  const trimmed = value.trim();
+  return trimmed.length > 0 ? trimmed : undefined;
+}
 
 function formatReadTime(blog: UpliftBlog): string {
   const explicit = blog.customFields?.readingTime;
@@ -71,14 +101,14 @@ function formatReadTime(blog: UpliftBlog): string {
 
 function formatDate(blog: UpliftBlog): string {
   const raw =
-    blog.freshness?.lastUpdatedAt ??
-    blog.updatedAt ??
     blog.publishDate ??
-    blog.createdAt;
+    blog.createdAt ??
+    blog.freshness?.lastUpdatedAt ??
+    blog.updatedAt;
   if (!raw) return "";
   const parsed = new Date(raw);
   if (Number.isNaN(parsed.getTime())) return "";
-  return `Updated ${parsed.toLocaleDateString("en-CA", { month: "long", year: "numeric" })}`;
+  return `Published ${parsed.toLocaleDateString("en-CA", { day: "numeric", month: "long", year: "numeric" })}`;
 }
 
 function pickKeyPoints(blog: UpliftBlog): string[] {
@@ -100,14 +130,14 @@ function mapBlog(blog: UpliftBlog): BlogPost | null {
       blog.categories?.[0] ?? blog.meta?.articleSection ?? "Resources",
     readTime: formatReadTime(blog),
     summary:
-      blog.excerpt ??
-      blog.meta?.seoDescription ??
-      blog.meta?.ogDescription ??
+      nonEmpty(blog.excerpt) ??
+      nonEmpty(blog.meta?.seoDescription) ??
+      nonEmpty(blog.meta?.ogDescription) ??
       "",
     date: formatDate(blog),
     keyPoints: pickKeyPoints(blog),
-    coverImage: blog.featuredImage ?? FALLBACK_COVER,
-    coverAlt: blog.meta?.ogTitle ?? blog.title,
+    coverImage: nonEmpty(blog.featuredImage) ?? FALLBACK_COVER,
+    coverAlt: nonEmpty(blog.meta?.ogTitle) ?? blog.title,
   };
 }
 
@@ -156,5 +186,58 @@ export async function fetchUpliftPosts(): Promise<BlogPost[]> {
   } catch (error) {
     console.warn("UpliftAI fetch error — falling back to local posts.", error);
     return fallbackPosts;
+  }
+}
+
+function detailUrlFor(slug: string): string | null {
+  const apiUrl = process.env.UPLIFT_API_URL;
+  if (!apiUrl) return null;
+  // List endpoint is `/blogs`; detail endpoint is `/blog/<slug>`.
+  const base = apiUrl.replace(/\/?blogs\/?$/, "/blog");
+  return `${base}/${encodeURIComponent(slug)}`;
+}
+
+export async function fetchUpliftPost(slug: string): Promise<UpliftBlogDetail | null> {
+  const apiKey = process.env.UPLIFT_API_KEY;
+  const url = detailUrlFor(slug);
+  if (!apiKey || !url) return null;
+
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        Accept: "application/json",
+      },
+      next: { revalidate: 3600 },
+    });
+
+    if (!response.ok) return null;
+
+    const payload = (await response.json()) as UpliftDetailResponse;
+    const blog = payload?.data?.blog;
+    if (!payload.success || !blog || !blog.slug || !blog.title) return null;
+
+    const summary =
+      nonEmpty(blog.excerpt) ?? nonEmpty(blog.meta?.seoDescription) ?? "";
+
+    return {
+      slug: blog.slug,
+      title: blog.title,
+      excerpt: summary,
+      content: typeof blog.content === "string" ? blog.content : "",
+      category:
+        blog.categories?.[0] ?? blog.meta?.articleSection ?? "Resources",
+      date: formatDate(blog),
+      readTime: formatReadTime(blog),
+      authorName: nonEmpty(blog.authorName),
+      authorUrl: nonEmpty(blog.authorUrl),
+      coverImage: nonEmpty(blog.featuredImage) ?? FALLBACK_COVER,
+      coverAlt: nonEmpty(blog.meta?.ogTitle) ?? blog.title,
+      seoTitle: nonEmpty(blog.meta?.seoTitle) ?? blog.title,
+      seoDescription: nonEmpty(blog.meta?.seoDescription) ?? summary,
+    };
+  } catch (error) {
+    console.warn(`UpliftAI detail fetch error for ${slug}.`, error);
+    return null;
   }
 }
