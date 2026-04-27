@@ -3,6 +3,7 @@ import Image from "next/image";
 import { BlogResourceHub } from "@/components/blog/blog-resource-hub";
 import { SplitText } from "@/components/motion/split-text";
 import { buildMetadata } from "@/lib/seo";
+import { fetchUpliftPosts } from "@/lib/uplift";
 
 export const metadata: Metadata = buildMetadata({
   title: "Blog",
@@ -11,6 +12,9 @@ export const metadata: Metadata = buildMetadata({
   path: "/blog",
 });
 
+// Re-fetch hourly so newly auto-generated UpliftAI posts appear without a redeploy.
+export const revalidate = 3600;
+
 const editorialTopics = [
   "Incorporation",
   "Licensing",
@@ -18,7 +22,9 @@ const editorialTopics = [
   "Procurement",
 ];
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await fetchUpliftPosts();
+
   return (
     <>
       <section className="relative overflow-hidden rounded-shell bg-brand-navy text-white">
@@ -100,7 +106,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <BlogResourceHub />
+      <BlogResourceHub posts={posts} />
     </>
   );
 }

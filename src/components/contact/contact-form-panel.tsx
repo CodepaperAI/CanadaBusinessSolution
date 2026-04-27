@@ -80,13 +80,19 @@ export function ContactFormPanel() {
       setSubmissionState("submitting");
       setSubmissionMessage("");
 
-      await new Promise((resolve) => {
-        setTimeout(resolve, 900);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
       });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
 
       setSubmissionState("success");
       setSubmissionMessage(
-        `Thanks, ${values.fullName.split(" ")[0]}. Your consultation request is ready for follow-up within 24 hours.`,
+        `Thanks, ${values.fullName.split(" ")[0]}. Your consultation request is on its way — we'll follow up within 24 hours.`,
       );
       reset();
     } catch {
