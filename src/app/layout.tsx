@@ -1,10 +1,13 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Footer } from "@/components/layout/footer";
 import { Navigation } from "@/components/layout/navigation";
 import { PageTransition } from "@/components/layout/page-transition";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
+
+const GA_MEASUREMENT_ID = "G-0X9FQMNQVQ";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -67,6 +70,18 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </main>
           <Footer />
         </div>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );
