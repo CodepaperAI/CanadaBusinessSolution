@@ -37,7 +37,7 @@ function buildEmailHtml(values: z.infer<typeof contactSchema>) {
       <h2 style="margin:0 0 16px;font-size:20px;">New consultation request</h2>
       <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">
         <tr><td style="padding:6px 0;font-weight:600;width:140px;">Name</td><td>${escapeHtml(values.fullName)}</td></tr>
-        <tr><td style="padding:6px 0;font-weight:600;">Email</td><td><a href="mailto:${escapeHtml(values.email)}" style="color:#1d4ed8;">${escapeHtml(values.email)}</a></td></tr>
+        <tr><td style="padding:6px 0;font-weight:600;">Email</td><td>${escapeHtml(values.email)}</td></tr>
         <tr><td style="padding:6px 0;font-weight:600;">Phone</td><td>${escapeHtml(values.phone)}</td></tr>
         <tr><td style="padding:6px 0;font-weight:600;">Business stage</td><td>${escapeHtml(values.businessType)}</td></tr>
       </table>
